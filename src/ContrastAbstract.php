@@ -18,6 +18,14 @@ abstract class ContrastAbstract implements ContrastInterface
      */
     public $type;
 
+    /**
+     * @return bool
+     */
+    public function valid() : bool
+    {
+        return !is_null( $this->value );
+    }
+
 
     /**
      * @inheritDoc
@@ -31,7 +39,7 @@ abstract class ContrastAbstract implements ContrastInterface
     /**
      * @inheritDoc
      */
-    public function getValue() : float
+    public function getValue() : ?float
     {
         return $this->value;
     }
@@ -41,10 +49,11 @@ abstract class ContrastAbstract implements ContrastInterface
      * Calculates the degree equivalent of the contrast value's Arc tangent.
      * @inheritDoc
      */
-    public function getAngle() : float
+    public function getAngle() : ?float
     {
         $gradient = $this->getValue();
-        return rad2deg( atan( $gradient ));
+
+        return is_null($gradient) ? null : rad2deg( atan( $gradient ));
     }
 
 }

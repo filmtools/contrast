@@ -15,7 +15,7 @@ class Contrast extends ContrastAbstract implements ContrastInterface, ContrastPr
      * @param float  $value  Contrast value
      * @param string $type   Optional: Short description
      */
-    public function __construct( float $value, string $type = null)
+    public function __construct( ?float $value, string $type = null)
     {
         $this->value = $value;
         $this->type = $type;
