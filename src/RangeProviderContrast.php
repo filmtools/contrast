@@ -15,11 +15,16 @@ class RangeProviderContrast extends Contrast implements RangeProviderContrastInt
      */
     public function __construct( float $hmin, float $dmin, float $rangeD, float $rangeH, string $type = null)
     {
+        $this->type = $type;
         $this->hmin = $hmin;
         $this->dmin = $dmin;
         $this->rangeD = $rangeD;
+
+        if ($rangeH == 0)
+        {
+            throw new \InvalidArgumentException("rangeH must not be 0", 1);
+        }
         $this->rangeH = $rangeH;
-        $this->type = $type;
     }
 
 
@@ -27,8 +32,18 @@ class RangeProviderContrast extends Contrast implements RangeProviderContrastInt
      * Calculates Contrast from density range and exposure range.
      * @return float
      */
-    public function getValue() : float{
+    public function getValue() : float {
         return $this->getRangeD() / $this->getRangeH();
+    }
+
+
+    /**
+     * (Compatibility with parent class)
+     * @return bool
+     */
+    public function valid() : bool
+    {
+        return !is_null( $this->getValue() );
     }
 
 
