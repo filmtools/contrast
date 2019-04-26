@@ -19,7 +19,15 @@ abstract class ContrastDecoratorAbstract implements ContrastInterface
     /**
      * @inheritDoc
      */
-    public function getType() : array
+    public function valid() : bool
+    {
+        return $this->contrast->valid();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getType() : ?string
     {
         return $this->contrast->getType();
     }
@@ -28,7 +36,7 @@ abstract class ContrastDecoratorAbstract implements ContrastInterface
     /**
      * @inheritDoc
      */
-    public function getValue() : float
+    public function getValue() : ?float
     {
         return $this->contrast->getValue();
     }
@@ -37,7 +45,7 @@ abstract class ContrastDecoratorAbstract implements ContrastInterface
     /**
      * @inheritDoc
      */
-    public function getAngle() : float
+    public function getAngle() : ?float
     {
         return $this->contrast->getAngle();
     }

@@ -15,13 +15,17 @@ interface ContrastInterface
      * Returns the contrast value (slope gradient).
      * @return float
      */
-    public function getValue() : float;
+    public function getValue() : ?float;
 
 
     /**
      * Returns the contrast angle.
      * @return float
      */
-    public function getAngle() : float;
+    public function getAngle() : ?float;
 
+    /**
+     * @return bool
+     */
+    public function valid() : bool;
 }
