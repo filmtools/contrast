@@ -50,7 +50,7 @@ class RangeProviderContrast extends Contrast implements RangeProviderContrastInt
     public function __debugInfo() {
         return [
             'type'     => $this->type,
-            'value'    => $this->value,
+            'value'    => $this->getValue(),
             'minH'     => $this->hmin,
             'minD'     => $this->dmin,
             'rangeD'   => $this->rangeD,
