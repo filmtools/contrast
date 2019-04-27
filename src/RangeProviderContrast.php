@@ -10,7 +10,7 @@ class RangeProviderContrast extends Contrast implements RangeProviderContrastInt
      * @param float $hmin
      * @param float $dmin
      * @param float $rangeD
-     * @param float $rangeH
+     * @param float $rangeH Exposure range. Must not be 0.
      * @param string|null $type Optional: Short description
      */
     public function __construct( float $hmin, float $dmin, float $rangeD, float $rangeH, string $type = null)
